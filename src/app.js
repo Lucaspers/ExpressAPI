@@ -18,13 +18,20 @@ app.use(express.static(publicStaticDirPath));
 
 
 app.get('', (req, res) =>{
-    res.send('hi this is expressapi');
+    res.render('index', {
+        title: 'ExpressAPI'
+    })
 })
 
 //localhost:3000/weather?address=london
 app.get('/weather', (req, res) => {
 
     const address = req.query.address
+    if(!address) {
+        return res.send({
+            error: 'Du måste skriva adressen i sökfältet'
+        })
+    }
 
     weatherData(address, (error, {temperature, description, cityName}) => {
         if(error) {
@@ -42,7 +49,9 @@ app.get('/weather', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.send('page not found')
+    res.render('404', {
+        title: 'Sidan hittades inte!'
+    })
 })
 
 app.listen(port, () => {
