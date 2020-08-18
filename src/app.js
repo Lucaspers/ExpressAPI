@@ -23,7 +23,7 @@ app.get('', (req, res) =>{
     })
 })
 
-//localhost:3000/weather?address=london
+
 app.get('/weather', (req, res) => {
 
     const address = req.query.address
@@ -33,7 +33,7 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    weatherData(address, (error, {temperature, description, cityName}) => {
+    weatherData(address, (error, {temperature, description, cityName} ={}) => {
         if(error) {
             return res.send({
                 error
@@ -48,11 +48,16 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/movie', (req, res) => {
+    res.send('FILM ENDPOINT');
+})
+
 app.get('*', (req, res) => {
     res.render('404', {
         title: 'Sidan hittades inte!'
     })
 })
+
 
 app.listen(port, () => {
     console.log('server is up', port);
