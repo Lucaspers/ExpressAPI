@@ -21,4 +21,4 @@ När du har node kan du installera hbs via npm i hbs https://www.npmjs.com/packa
 
 När du har node kan du installera request via npm i request https://www.npmjs.com/package/request
 
-När dessa är installerade kan du starta projektet och köra filerna.
+När dessa är installerade kan du starta projektet och köra filerna genom att starta node server node src/app.js
