@@ -6,6 +6,6 @@ POST http://localhost:3000/api/movies
 Content-Type: application/json
 
 {
-    'id': 3,
-    'movie':'Eragon'
+    "id": "4234",
+    "name":"Cars"
 }
